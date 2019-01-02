@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>login</title> 
+    <header class="w3-container w3-teal">
+        <h1>Signup</h1>
+      </header>
+    </head> 
+    <div class="w3-container w3-half w3-margin-top">
+
+<body> 
+   <h2>회원가입</h2>
+   <form class="w3-container w3-card-4" action="{% url 'UserService:signup' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" class="w3-button w3-section w3-teal w3-ripple" value="회원가입">
+   </form>
+</body> 
+</html>

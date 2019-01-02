@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>Index</title> 
+        <header class="w3-container w3-teal">
+            <h1>Index</h1>
+          </header>
+        </head> 
+        
+
+<body> 
+        {% if user.is_authenticated %} 
+        <p>{{ user.username }}님 안녕하세요! 로그인 되었습니다.</p> 
+        {% else %} <p>로그인 해주세요.</p> 
+        {% endif %}
+<!--https://www.youtube.com/watch?v=Vo90DntfTMw&list=PLY9pe3iUjRrT6wZTIA5YriQxvfXf-yxhF&index=19-->
+    <br>
+    <a href="{% url 'UserService:login' %}" class="w3-button w3-section w3-teal w3-ripple" >로그인</a>
+    <a href="{% url 'UserService:logout' %}" class="w3-button w3-section w3-teal w3-ripple">로그아웃</a>
+    <br>
+    <a href="{% url 'UserService:signup' %}" class="w3-button w3-section w3-teal w3-ripple" >회원가입</a>
+</body> 
+</html>
