@@ -11,6 +11,7 @@ from django.contrib.auth import(
     login as django_login,
     logout as django_logout,
 )
+from .models import TestTable
 
 
 def index(request):
@@ -19,8 +20,8 @@ def index(request):
     else:
         data = {"last_login":request.user.last_login, "username":request.user.username,
         "password":request.user.password,"is_authenticated":request.user.is_authenticated}
-    return render(request, "UserService/index.html", context= {"data":data}
-    )
+    return render(request, "UserService/index.html", context= {"data":data} )
+
 @csrf_exempt
 def signup(request):
     print("----------singup()--------------")
@@ -56,3 +57,10 @@ def login_check(request):
 def logout(request):
     django_logout(request)
     return redirect("/")
+
+
+def result(request):
+    print("---------results()-------------")
+    testtable = TestTable.objects.all()
+    context = {'testtable': testtable}
+    return render(request, 'UserService/result.html', context)
