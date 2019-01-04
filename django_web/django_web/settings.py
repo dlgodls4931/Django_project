@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'django_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'datatest', # DB명
+        'NAME': 'database_1', # DB명
         'USER': 'root', # 데이터베이스 계정
         'PASSWORD': 'godls147', # 계정 비밀번호
         'HOST': '127.0.0.1', # 데이테베이스 주소(IP)

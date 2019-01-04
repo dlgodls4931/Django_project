@@ -118,20 +118,23 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class TestTable(models.Model):
-    col_1 = models.IntegerField(primary_key=True)
-    col_2 = models.CharField(max_length=45, blank=True, null=True)
-    col_3 = models.CharField(max_length=45, blank=True, null=True)
-    col_4 = models.IntegerField(blank=True, null=True)
-    col_5 = models.IntegerField(blank=True, null=True)
-    col_6 = models.IntegerField(blank=True, null=True)
-    col_7 = models.IntegerField(blank=True, null=True)
-    col_8 = models.CharField(max_length=45, blank=True, null=True)
-    col_9 = models.CharField(max_length=45, blank=True, null=True)
-    col_10 = models.IntegerField(blank=True, null=True)
+class NewTable(models.Model):
+    id = models.IntegerField(primary_key=True)
+    arrangements = models.IntegerField(blank=True, null=True)
+    supply = models.IntegerField(blank=True, null=True)
+    max_power = models.IntegerField(blank=True, null=True)
+    reserve_power = models.IntegerField(blank=True, null=True)
+    reserve_per = models.FloatField(blank=True, null=True)
+    basic_date = models.DateTimeField(blank=True, null=True)
+    avg_tem = models.FloatField(blank=True, null=True)
+    avg_max_tem = models.FloatField(blank=True, null=True)
+    min_tem = models.FloatField(blank=True, null=True)
+    max_tem = models.FloatField(blank=True, null=True)
+    avg_min_tem = models.FloatField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'test_table'
+        db_table = 'new_table'
     def __str__(self):
-        return self.col_2
+        return self.date

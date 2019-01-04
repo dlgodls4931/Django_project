@@ -3,6 +3,7 @@
 {% block title %}
 Home
 {% endblock %}
+
 {% block header %}
 Home
 {% endblock %}
@@ -10,8 +11,9 @@ Home
 {% block content %}
 
         {% if user.is_authenticated %} 
-        <p>{{ user.username }}님 안녕하세요! 로그인 되었습니다.</p> 
-        {% else %} <p>로그인 해주세요.</p> 
+            <p>{{ user.username }}님 안녕하세요! 로그인 되었습니다.</p> 
+        {% else %} 
+            <p>로그인 해주세요.</p> 
         {% endif %}
 <!--https://www.youtube.com/watch?v=Vo90DntfTMw&list=PLY9pe3iUjRrT6wZTIA5YriQxvfXf-yxhF&index=19-->
     <br>

@@ -10,13 +10,36 @@ Home
 {% block content %}
 
 <table class="table">
+        <thead>
+        <tr>
+            <td>날짜</td>
+            <td>설비용량(MW)</td>
+            <td>공급능력(MW)</td>
+            <td>최대전력(MW)</td>
+            <td>공급예비력(MW)</td>
+            <td>공급예비율(%)</td>
+            <td>최대전력기준일시</td>
+            <td>평균기온(℃)</td>
+            <td>평균최고기온(℃)</td>
+            <td>최저기온(℃)</td>
+            <td>최고기온(℃)</td>
+            <td>평균최저기온(℃) </td>
+        </tr>
+                </thead>
         {% for t in testtable %}
     <tr>
-    
-        <td>{{t.col_1}}</td>
-        <td>{{t.col_2}}</td>
-        <td>{{t.col_3}}</td>
-    
+        <td>{{t.date}}</td>
+        <td>{{t.arrangements}}</td>
+        <td>{{t.supply}}</td>
+        <td>{{t.max_power}}</td>
+        <td>{{t.reserve_power}}</td>
+        <td>{{t.reserve_per}}</td>
+        <td>{{t.basic_date}}</td>
+        <td>{{t.avg_tem}}</td>
+        <td>{{t.avg_max_tem}}</td>
+        <td>{{t.min_tem}}</td>
+        <td>{{t.max_tem}}</td>
+        <td>{{t.avg_min_tem}}</td>
     </tr>
     {% endfor %}
 </table>

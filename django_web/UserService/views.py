@@ -11,7 +11,7 @@ from django.contrib.auth import(
     login as django_login,
     logout as django_logout,
 )
-from .models import TestTable
+from .models import NewTable
 
 
 def index(request):
@@ -32,11 +32,11 @@ def signup(request):
             django_login(request, new_user)
             return redirect("/")
         else:
-            return HttpResponse("UserService/index.html",{"msg":"회원 가입 실패, 다시시도해주세요"})
+            return render("UserService/index.html",{"msg":"회원 가입 실패, 다시시도해주세요"})
     else:
         form = UserForm()
         return render(request, "UserService/signup.html",{"form" : form})
-    return render(request, "UserService.html")
+    return render(request, "UserService/index.html")
 
 
 def login_check(request):
@@ -49,7 +49,7 @@ def login_check(request):
             django_login(request, user)
             return redirect("/")
         else:
-            return HttpResponse("UserService/index.html.",{"msg":"로그인 실패, 다시시도해주세요"})
+            return render("UserService/index.html.",{"msg":"로그인 실패, 다시시도해주세요"})
     else:
         form = LoginForm()
         return render(request, "UserService/login.html", {"form":form})
@@ -61,6 +61,6 @@ def logout(request):
 
 def result(request):
     print("---------results()-------------")
-    testtable = TestTable.objects.all()
+    testtable = NewTable.objects.all()[]
     context = {'testtable': testtable}
     return render(request, 'UserService/result.html', context)
