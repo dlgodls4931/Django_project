@@ -24,20 +24,17 @@ def index(request):
 
 @csrf_exempt
 def signup(request):
-    print("----------singup()--------------")
-    if request.method =="POST":
+    if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
             new_user = User.objects.create_user(**form.cleaned_data)
-            django_login(request, new_user)
-            return redirect("/")
+            login(request, new_user)
+            return redirect('/')
         else:
-            return render("UserService/index.html",{"msg":"회원 가입 실패, 다시시도해주세요"})
+            return HttpResponse('사용자명이 이미 존재합니다.')
     else:
         form = UserForm()
-        return render(request, "UserService/signup.html",{"form" : form})
-    return render(request, "UserService/index.html")
-
+        return render(request, "UserService/signup.html", {'form': form})
 
 def login_check(request):
     if request.method =="POST":
@@ -61,6 +58,6 @@ def logout(request):
 
 def result(request):
     print("---------results()-------------")
-    testtable = NewTable.objects.all()[]
+    testtable = NewTable.objects.all()
     context = {'testtable': testtable}
     return render(request, 'UserService/result.html', context)

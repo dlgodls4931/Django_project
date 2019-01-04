@@ -10,6 +10,41 @@ Home
 
 {% block content %}
 
+<script>
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title:{
+            text: "Simple Line Chart"
+        },
+        axisY:{
+            includeZero: false
+        },
+        data: [{        
+            type: "line",       
+            dataPoints: [
+                { y: 450 },
+                { y: 414},
+                { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+                { y: 460 },
+                { y: 450 },
+                { y: 500 },
+                { y: 480 },
+                { y: 480 },
+                { y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+                { y: 500 },
+                { y: 480 },
+                { y: 510 }
+            ]
+        }]
+    });
+    chart.render();
+    
+    }
+    </script>
+
         {% if user.is_authenticated %} 
             <p>{{ user.username }}님 안녕하세요! 로그인 되었습니다.</p> 
         {% else %} 
@@ -19,9 +54,8 @@ Home
     <br>
     <a href="{% url 'UserService:login' %}"><button type="button" class="btn">로그인</button></a>
     <a href="{% url 'UserService:logout' %}"><button type="button" class="btn">로그아웃</button></a>
-    <a href="{% url 'UserService:signup' %}"><button type="button" class="btn">회원가입</button>
-    </a>
+    <a href="{% url 'UserService:signup' %}"><button type="button" class="btn">회원가입</button></a>
 
     <a href="{% url 'UserService:result' %}"><button type="button" class="btn">result</button></a>
-
-{% endblock %}    
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+{% endblock %}  
